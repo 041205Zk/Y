@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sıla Göktaş | Küçük Boy, Evrensel Hayaller</title>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --space: #0B3D91;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            background: 
+                linear-gradient(45deg, #1a1a2e, #16213e),
+                url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="26" fill="%23002255">158CM</text></svg>');
+            color: white;
+            min-height: 100vh;
+        }
+
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .height-display {
+            font-size: 6em;
+            background: linear-gradient(45deg, var(--gold), #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px;
+            filter: drop-shadow(0 0 10px var(--gold));
+        }
+
+        .dream-text {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 40px;
+            position: relative;
+        }
+
+        .dream-text::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .timeline-item {
+            width: 45%;
+            padding: 20px;
+            margin: 40px 0;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 5%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .moon {
+            width: 150px;
+            height: 150px;
+            background: #F0F0F0;
+            border-radius: 50%;
+            position: fixed;
+            bottom: -50px;
+            right: -50px;
+            box-shadow: 0 0 50px 10px rgba(255,215,0,0.3);
+            animation: moonrise 2s ease-out;
+        }
+
+        @keyframes moonrise {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <div class="height-display">158CM</div>
+        <h1 class="dream-text">Küçük Boy</h1>
+        <h1 class="dream-text" style="color: var(--gold);">Galaktik Hayaller</h1>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <h2>🚀 2024: Uzay Kampı</h2>
+            <p>"Yer çekimine meydan okuyan ilk 158cm!"</p>
+        </div>
+        
+        <div class="timeline-item">
+            <h2>🌍 2025: 158 Ülke Turu</h2>
+            <p>"Her adımda yeni bir kültür keşfi!"</p>
+        </div>
+
+        <div class="timeline-item">
+            <h2>📚 2026: Nano-Teknoloji Kitabı</h2>
+            <p>"Küçük boyuttan büyük icatlara..."</p>
+        </div>
+    </div>
+
+    <div class="moon"></div>
+
+<script>
+// İnteraktif Timeline
+document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.style.transform = 'rotate(2deg)';
+        setTimeout(() => item.style.transform = '', 500);
+    });
+});
+
+// Ay Animasyonu
+const moon = document.querySelector('.moon');
+document.addEventListener('mousemove', (e) => {
+    moon.style.transform = 
+        `translate(${e.clientX/50}px, ${e.clientY/50}px) 
+         rotate(${e.clientX/10}deg)`;
+});
+</script>
+</body>
+</html>
